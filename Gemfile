@@ -9,7 +9,6 @@ gem 'rails', '4.2.4'
 gem 'react-rails', '~> 1.7.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'sqlite3'
 gem 'slim', '~> 3.0.6'
 gem 'slim-rails', '~> 3.0.1'
 gem 'turbolinks'
