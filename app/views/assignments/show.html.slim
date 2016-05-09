@@ -1,16 +1,3 @@
-p
-  strong Name:
-  = @assignment.name
-p
-  strong Points:
-  = @assignment.points
-p
-  strong Due date:
-  = @assignment.due_date
-p
-  strong Semester:
-  = @assignment.semester
-
-= link_to 'Edit', edit_assignment_path(@assignment)
-'|
-= link_to 'Back', assignments_path
+= react_component "AssignmentPage", {  \
+	assignment: @assignment 		\
+}

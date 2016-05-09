@@ -12,10 +12,10 @@ class Lectures extends React.Component {
     }
 
     componentDidMount() {
-        this._fetchLectures();
+        this.fetchLectures();
     }
 
-    _fetchLectures() {
+    fetchLectures() {
         const success = (data) => { this.setState({ lectures: data, isLoading: false }); }
         APIRequester.getJSON(APIConstants.lectures.collection, success);
     }
@@ -27,23 +27,36 @@ class Lectures extends React.Component {
                            key        = {lecture["id"]} assignment = {lecture.assignment} />
             );
         });
-        return (
-            <div className="row">
-                <div className="col-md-8">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Week</th>
-                                <th>Date</th>
-                                <th>Topic</th>
-                                <th>Assignment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {lectures}
-                        </tbody>
-                    </table>
+
+        let page;
+        if (this.state.isLoading) {
+            page = (
+                <div className="spinner-container"></div>
+            )
+        } else {
+            page = (
+                <div className="row">
+                    <div className="col-md-8">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Week</th>
+                                    <th>Date</th>
+                                    <th>Topic</th>
+                                    <th>Assignment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {lectures}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            )
+        }
+        return (
+            <div>
+                {page}
             </div>
         );
     }
@@ -54,13 +67,13 @@ class Lectures extends React.Component {
  */
 class Lecture extends React.Component {
 
-    handleRowClick(e) {
-       window.location.href = `/assignments/${this.props.lecture.assignment.id}`;
+    constructor(props) {
+        super(props);
     }
 
     render() {
         return (
-            <tr >
+            <tr>
                 <td>
                     { this.props.lecture.week }
                 </td>
@@ -71,9 +84,13 @@ class Lecture extends React.Component {
                     { this.props.lecture.topic }
                 </td>
                 <td>
-                    { this.props.lecture.assignment.name }
+                    <a href={'/assignments/' + this.props.lecture.assignment.id}>
+                        { this.props.lecture.assignment.name }
+                    </a>
                 </td>
             </tr>
         );
     }
 }
+
+Lecture.propTypes = { lecture: React.PropTypes.object.isRequired };

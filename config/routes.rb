@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   namespace :api do
   	resources :lectures, only: [:index]
+	resources :assignments
   end
 end
