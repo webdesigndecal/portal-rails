@@ -1,17 +1,30 @@
 /**
  * @prop lectures - the list of lectures
  */
-var Lectures = React.createClass({
-    getInitialState: function() {
-        return {
-            lectures: this.props.lectures,
+class Lectures extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: true,
+            lectures: []
         };
-    },
-    render: function() {
+    }
+
+    componentDidMount() {
+        this._fetchLectures();
+    }
+
+    _fetchLectures() {
+        const success = (data) => { this.setState({ lectures: data, isLoading: false }); }
+        APIRequester.getJSON(APIConstants.lectures.collection, success);
+    }
+
+    render() {
         var lectures = this.state.lectures.map(function(lecture) {
             return (
                 <Lecture lecture  = {lecture}
-                           key        = {lecture["id"]} />
+                           key        = {lecture["id"]} assignment = {lecture.assignment} />
             );
         });
         return (
@@ -34,18 +47,18 @@ var Lectures = React.createClass({
             </div>
         );
     }
-});
+}
 
 /**
  * @prop lecture - the info about this lecture
  */
-var Lecture = React.createClass({
+class Lecture extends React.Component {
 
     handleRowClick(e) {
        window.location.href = `/assignments/${this.props.lecture.assignment.id}`;
-    },
+    }
 
-    render: function() {
+    render() {
         return (
             <tr >
                 <td>
@@ -58,9 +71,9 @@ var Lecture = React.createClass({
                     { this.props.lecture.topic }
                 </td>
                 <td>
-                    { this.props.lecture.semester }
+                    { this.props.lecture.assignment.name }
                 </td>
             </tr>
         );
     }
-});
+}

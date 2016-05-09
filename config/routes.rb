@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :assignments
   resources :lectures
+
+  namespace :api do
+  	resources :lectures, only: [:index]
+  end
 end
