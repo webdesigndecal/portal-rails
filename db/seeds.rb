@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def make_lectures
+  1.upto(5) do |n|
+    lecture = Lecture.create(
+      topic: "Lecture #{n}",
+      week: n,
+      date: rand(10.months).seconds.ago,
+      semester: "sp0#{n}"
+    )
+    lecture.id = n
+    lecture.save
+  end
+end
+
+def make_assignments
+  1.upto(5) do |n|
+    assignment = Assignment.create(
+      name: "Assignment #{n}",
+      points: "5",
+      due_date: rand(10.days).seconds.from_now,
+      semester: "sp0#{n}",
+      lecture: Lecture.where(week: n).first
+    )
+    assignment.id = n
+    assignment.save
+  end
+end
+
+make_lectures
+make_assignments
