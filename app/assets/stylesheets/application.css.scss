@@ -15,7 +15,13 @@
 @import "font-awesome";
 
 /* Import all the CSS here */
-@import "partials/*";
+@import "partials/reset";
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/fonts";
+@import "partials/layout";
+
 // @import "components/*";
 
 @import "pages";
