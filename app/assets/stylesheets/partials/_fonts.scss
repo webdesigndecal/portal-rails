@@ -1,0 +1,8 @@
+$font-stack: "Lato", sans-serif;
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+body {
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+}

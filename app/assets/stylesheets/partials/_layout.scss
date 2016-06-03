@@ -1,3 +1,104 @@
+/**
+  This file contains common page components.
+  - grid
+  - buttons
+  - inputs
+ */
+
 * {
   box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/*******************/
+/** Button Styles **/
+/*******************/
+
+button,
+.btn {
+  appearance: none;
+  background-color: $gray-dark;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  color: $gray-white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.9;
+  outline: none;
+  margin: 5px;
+  padding: 10px 15px;
+  transition: 100ms;
+}
+
+.btn--blue {
+  background-color: $blue;
+}
+
+.btn--green {
+  background-color: $green;
+}
+
+.btn--red {
+  background-color: $red;
+}
+
+.btn--outline {
+  background: $gray-white;
+  border-color: $gray-med;
+  color: $gray-dark;
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid $gray-light;
+  color: $gray-white;
+}
+
+.btn--lg {
+  padding: 15px 25px;
+}
+
+.btn--sm {
+  font-weight: 500;
+  padding: 6px 13px;
+}
+
+/******************/
+/** Input Styles **/
+/******************/
+
+.input-container {
+  font-family: $font-stack;
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+}
+
+label {
+  color: $gray-dark;
+  display: inline-block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  border: 1px solid $gray-light;
+  border-radius: 2px;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+  padding: 10px 13px;
+  transition: 100ms;
+  z-index: 1;
+
+  &:focus {
+    border-color: $blue;
+  }
 }
