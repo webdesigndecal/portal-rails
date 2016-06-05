@@ -2,6 +2,11 @@ $green          : #13CE66;
 $green-light    : #29EB7F;
 
 $blue           : #1FB6FF;
+$blue-80        : rgba($blue, 0.80);
+$blue-60        : rgba($blue, 0.60);
+$blue-40        : rgba($blue, 0.40);
+$blue-20        : rgba($blue, 0.20);
+
 $blue-light     : #85D7FF;
 
 $red            : #E74C3C;
@@ -11,5 +16,13 @@ $gray-dark      : #3C4858;  // darkest gray
 $gray-med       : #8492A6;
 $gray-light     : #E0E6ED;
 $gray-white     : #F9FAFC;  // lightest gray
+
+$gray-dark-90   : rgba($gray-dark, 0.90);
+$gray-dark-80   : rgba($gray-dark, 0.80);
+$gray-dark-60   : rgba($gray-dark, 0.60);
+$gray-dark-40   : rgba($gray-dark, 0.40);
+$gray-dark-20   : rgba($gray-dark, 0.20);
+
+
 
 $ease: cubic-bezier(0.770, 0.000, 0.175, 1.000);

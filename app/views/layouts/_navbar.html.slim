@@ -1,6 +1,13 @@
-li = link_to 'Home', lectures_path
-- if current_user
-	li
-		| #{current_user.email}
-	li = link_to 'Sign Out', destroy_user_session_path, method: :delete
-	li = link_to 'Change Password', edit_user_registration_path
+nav.navbar
+	.container
+		ul
+			li = link_to 'WDD Portal', root_path, class: "link link--white navbar-home"
+			- if current_user
+				li
+					| #{current_user.email}
+				li = link_to 'Sign Out', destroy_user_session_path, method: :delete
+				li = link_to 'Change Password', edit_user_registration_path
+			- if not current_user
+				.navbar--pull-right
+					li = link_to 'Sign up', new_user_registration_path, class: "link link--white"
+					li = link_to 'Sign in', new_user_session_path, class: "btn btn--small btn--ghost"

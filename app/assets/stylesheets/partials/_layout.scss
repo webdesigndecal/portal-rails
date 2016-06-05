@@ -9,9 +9,43 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: $gray-white;
+  color: $gray-dark;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1200px;
+}
+
+/*****************/
+/** Page Styles **/
+/*****************/
+
+.content-box {
+  background: white;
+  border: 1px solid $gray-light;
+  border-radius: 2px;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translateX(-50%) translateY(-50%));
+}
+
+.absolute-center--horizontal {
+  position: absolute;
+  left: 50%;
+  @include transform(translateX(-50%));
+}
+
+.absolute-center--vertical {
+  position: absolute;
+  top: 50%;
+  @include transform(translateY(-50%));
 }
 
 /*******************/
@@ -26,6 +60,7 @@ button,
   border: 1px solid transparent;
   color: $gray-white;
   cursor: pointer;
+  display: inline-block;
   font-size: 13px;
   font-weight: 700;
   opacity: 0.9;
@@ -33,6 +68,7 @@ button,
   margin: 5px;
   padding: 10px 15px;
   transition: 100ms;
+  text-decoration: none;
 }
 
 .btn--blue {
@@ -60,12 +96,33 @@ button,
 }
 
 .btn--lg {
+  font-size: 16px;
   padding: 15px 25px;
 }
 
 .btn--sm {
   font-weight: 500;
   padding: 6px 13px;
+}
+
+/*****************/
+/** Link Styles **/
+/*****************/
+a.link {
+  text-decoration: none;
+  transition: 100ms;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.link--primary {
+  color: $blue;
+}
+
+a.link--white {
+  color: $gray-white;
 }
 
 /******************/
