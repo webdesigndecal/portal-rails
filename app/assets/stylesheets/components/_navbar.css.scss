@@ -1,0 +1,25 @@
+.navbar {
+  color: $gray-white;
+  font-size: 13px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
+
+.navbar-home {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.navbar--pull-right {
+  float: right;
+}

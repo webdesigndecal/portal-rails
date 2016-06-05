@@ -1,0 +1,74 @@
+.splash-hero-section {
+  background-image: image_url("hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  min-height: 600px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &:before {
+    background: $gray-dark-90;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.splash-title-container {
+  color: $gray-white;
+  text-align: center;
+}
+
+.splash-hero-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.splash-hero-description {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  max-width: 400px;
+}
+
+.hero-quick-info-container {
+  bottom: 0;
+  box-shadow: 0 0 10px $gray-dark-20;
+  display: flex;
+  flex-flow: row;
+  min-width: 700px;
+  padding: 35px 50px;
+  @include transform(translateY(50%) translateX(-50%));
+
+  .quick-info-entry {
+    margin: 0 30px;
+  }
+
+  .quick-info-entry:first-of-type {
+    margin-left: 0;
+  }
+
+  .quick-info-entry:last-of-type {
+    margin-right: 0;
+  }
+
+  h1 {
+    color: $gray-med;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
