@@ -7,3 +7,6 @@ To get started:
 
 To start the server:
 `rails s`
+
+### Design
+To see mockups, go [here](https://www.figma.com/file/O8dgVSqT9XRtiFgi6XoNRVHL/Mockups) (Slack login required)
