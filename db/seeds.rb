@@ -1,3 +1,13 @@
+def make_user
+  user = User.create(
+    id: 1,
+    email: "student@test.com",
+    password: "password",
+    staff: false
+  )
+  user.save
+end
+
 def make_lectures
   1.upto(5) do |n|
     lecture = Lecture.create(
@@ -25,5 +35,6 @@ def make_assignments
   end
 end
 
+make_user
 make_lectures
 make_assignments

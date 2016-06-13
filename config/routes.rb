@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :assignments
   resources :lectures
 
+  get '/schedule', to: 'assignments#index'
+
   namespace :api do
   	resources :lectures, only: [:index]
 	resources :assignments
