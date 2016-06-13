@@ -43,7 +43,8 @@ class Lectures extends React.Component {
               <tr>
                 <th>Week</th>
                 <th>Date</th>
-                <th>Topic</th>
+                <th>Programming</th>
+                <th>Design</th>
                 <th>Assignment</th>
               </tr>
             </thead>
@@ -92,7 +93,10 @@ class Lecture extends React.Component {
           { this.props.lecture.date }
         </td>
         <td>
-          { this.props.lecture.topic }
+          { this.props.lecture.prog_topic }
+        </td>
+        <td>
+          { this.props.lecture.design_topic }
         </td>
         <td>
           { assignmentName }

@@ -11,7 +11,10 @@ end
 def make_lectures
   1.upto(5) do |n|
     lecture = Lecture.create(
-      topic: "Lecture #{n}",
+      prog_topic: "Prog Lecture #{n}",
+      design_topic: "Design Lecture #{n}",
+      prog_description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam aliquid ea officia, voluptatum possimus vero veniam optio!",
+      design_description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam aliquid ea officia, voluptatum possimus vero veniam optio!",
       week: n,
       date: rand(10.months).seconds.ago,
       semester: "sp0#{n}"
