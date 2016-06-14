@@ -21,10 +21,12 @@ class Lectures extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     var lectures = this.state.lectures.map(function(lecture) {
       return (
         <Lecture lecture  = {lecture}
-              key        = {lecture["id"]} assignment = {lecture.assignment} />
+               key        = {lecture["id"]} 
+               assignment = {lecture.assignment} />
       );
     });
 
@@ -36,44 +38,26 @@ class Lectures extends React.Component {
     } else {
       page = (
         <div className="row">
-          <div className="col-md-8">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Week</th>
-                  <th>Date</th>
-                  <th>Topic</th>
-                  <th>Assignment</th>
-                </tr>
-              </thead>
-              <tbody>
-                {lectures}
-              </tbody>
-            </table>
-          </div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Date</th>
+                <th>Programming</th>
+                <th>Design</th>
+                <th>Assignment</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lectures}
+            </tbody>
+          </table>
         </div>
       )
     }
     return (
       <div>
         {page}
-        <button>Button</button>
-        <button className="btn--blue">Button</button>
-        <button className="btn--green">Button</button>
-        <button className="btn--red">Button</button>
-        <button className="btn--outline">Button</button>
-
-        <button className="btn--green btn--sm">Button</button>
-        <button className="btn--green btn--lg">Button</button>
-        <br/>
-        <div className="input-container" id="first-name">
-          <input type="text" name="first-name" required/>
-          <label for="first-name">First name</label>
-        </div>
-        <div className="input-container" id="last-name">
-          <input type="text" name="last-name" required/>
-          <label for="last-name">Last name</label>
-        </div>
       </div>
     );
   }
@@ -89,6 +73,17 @@ class Lecture extends React.Component {
   }
 
   render() {
+    let assignmentName;
+    if (this.props.lecture.assignment) {
+      assignmentName = (
+          <a className="btn btn--blue" href={'/assignments/' + this.props.lecture.assignment.id}>
+            View Assignment
+          </a>
+        )
+    } else {
+      assignmentName = <p>No assignment</p>
+    }
+
     return (
       <tr>
         <td>
@@ -98,12 +93,13 @@ class Lecture extends React.Component {
           { this.props.lecture.date }
         </td>
         <td>
-          { this.props.lecture.topic }
+          { this.props.lecture.prog_topic }
         </td>
         <td>
-          <a href={'/assignments/' + this.props.lecture.assignment.id}>
-            { this.props.lecture.assignment.name }
-          </a>
+          { this.props.lecture.design_topic }
+        </td>
+        <td>
+          { assignmentName }
         </td>
       </tr>
     );
