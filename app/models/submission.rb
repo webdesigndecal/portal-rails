@@ -12,6 +12,6 @@
 #
 
 class Submission < ActiveRecord::Base
-  belongs_to :lecture
+  belongs_to :assignment
   belongs_to :user
 end
