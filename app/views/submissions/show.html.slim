@@ -1,0 +1,9 @@
+= form_for @submission, :html => { :multipart => true } do |f|
+  .field
+    = f.label :file
+    br/
+    = f.file_field :file
+  .actions
+    = f.submit
+ 
+= link_to 'Submission', @submission.file.url

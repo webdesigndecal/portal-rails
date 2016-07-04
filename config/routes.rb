@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :assignments
   resources :lectures
+  resources :submissions
 
   get '/schedule', to: 'assignments#index'
 

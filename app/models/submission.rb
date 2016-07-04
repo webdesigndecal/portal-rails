@@ -14,4 +14,6 @@
 class Submission < ActiveRecord::Base
   belongs_to :assignment
   belongs_to :user
+
+  mount_uploader :file, FileUploader
 end
